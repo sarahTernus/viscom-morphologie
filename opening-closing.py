@@ -5,8 +5,8 @@ import cv2 as cv
 def opening_closing():
 
     # Reading the input image
-    img_opening = cv.imread('images/opening.png', 0)
-    img_closing = cv.imread('images/closing.png', 0)
+    img_opening = cv.imread('images/oeffnung.png', 0)
+    img_closing = cv.imread('images/schliessung.png', 0)
     # Taking a matrix of size 5 as the kernel
     kernel = np.ones((5, 5), np.uint8)
 
@@ -18,8 +18,8 @@ def opening_closing():
     opening = cv.morphologyEx(img_opening, cv.MORPH_OPEN, kernel)
     closing = cv.morphologyEx(img_closing, cv.MORPH_CLOSE, kernel)
 
-    cv.imwrite('images/opening-result.png', opening)
-    cv.imwrite('images/closing-result.png', closing)
+    cv.imwrite('images/oeffnung-result.png', opening)
+    cv.imwrite('images/schliessung-result.png', closing)
 
     cv.waitKey(0)
 
