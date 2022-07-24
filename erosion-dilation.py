@@ -5,21 +5,26 @@ import cv2 as cv
 def erosion_dilation():
 
     # Reading the input image
-    img = cv.imread('images/example_T.png', 0)
-    if img is None:
-        print('Could not open or find the image: ')
+    img_erosion = cv.imread('images/erosion-example.png', 0)
+    img_dilation = cv.imread('images/dilation-example.png', 0)
+    if img_erosion is None:
+        print('Could not open or find the erosion image: ')
+        exit(0)
+
+    if img_dilation is None:
+        print('Could not open or find the dilation image: ')
         exit(0)
 
     # Structural element
-    kernel = np.ones((10, 10), np.uint8)
+    kernel = np.ones((6, 6), np.uint8)
 
     # Erosion and Dilation functions
-    img_erosion = cv.erode(img, kernel, iterations=1)
-    img_dilation = cv.dilate(img, kernel, iterations=1)
+    img_erosion_result = cv.erode(img_erosion, kernel, iterations=1)
+    img_dilation_result = cv.dilate(img_dilation, kernel, iterations=1)
 
     # Save result images
-    cv.imwrite('images/erosion_T.png', img_erosion)
-    cv.imwrite('images/dilation_T.png', img_dilation)
+    cv.imwrite('images/erosion-result.png', img_erosion_result)
+    cv.imwrite('images/dilation-result.png', img_dilation_result)
 
     cv.waitKey(0)
 
