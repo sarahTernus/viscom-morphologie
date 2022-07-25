@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<config
+  xmlns:schema="http://www.itwm.fhg.de/mab/Mablib2Core/XML2Schema"
+  xmlns:val="http://www.itwm.fhg.de/mab/Mablib2Core/XML2Validator"
+  xmlns:ser="http://www.itwm.fhg.de/mab/Mablib2Core/XML2Serializer"
+  xmlns:gui="http://www.itwm.fhg.de/mab/Mablib2Core/XML2Gui"
+  xmlns:range="http://www.itwm.fhg.de/mab/Mablib2Core/XML2Range"
+>
+
+  <string id="id">ToolIP:graph</string>
+  <map id="app">
+    <string id="mode">internal</string>
+    <string id="application">ToolIP</string>
+  </map>
+  <map id="env">
+    <string id="QTDIR"></string>
+    <string id="ITWMDIR">D:\ToolIP</string>
+  </map>
+  <vector id="Nodes" size="12">
+    <map>
+      <map id="ui">
+        <string id="label">Closing_Originalbb.jpg</string>
+        <double id="pos-x">-664</double>
+        <double id="pos-y">398</double>
+        <bool id="timing">false</bool>
+        <string id="tooltip">D:/OneDrive/2.Semester/Viscom/Morphologie/Animationen und Erkl?rbilder/Beispielbilder_ToolIP/Closing_Originalbb.jpg</string>
+        <string id="FirstBgColor">#ffa500</string>
+        <string id="SecondBgColor">#ff4500</string>
+        <bool id="automaticLabel">true</bool>
+      </map>
+      <string id="name">Load</string>
+      <map id="inputs">
+      </map>
+      <bool id="widget">true</bool>
+      <map id="outputs">
+        <binary id="0" type="pointer:CImage"/>
+      </map>
+      <string id="subType">File</string>
+      <string id="PluginPath">%ITWMDIR%/bin/display::Load</string>
+      <map id="parameters">
+        <string id="path" gui:openFile="true" gui:filefilter="Image Files (*.ppm *.pgm *.pbm *.jpeg *.jpg *.bmp *.tiff *.tif *.png *.gif *.iass);;XML files (*.xml *.tlp);;All Files (*)">D:/OneDrive/2.Semester/Viscom/Morphologie/Animationen und Erklärbilder/Beispielbilder_ToolIP/Closing_Originalbb.jpg</string>
+      </map>
+      <string id="pluginType">In-/Output</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/display/PLoad/index.html</string>
+    </map>
+    <map>
+      <map id="ui">
+        <double id="pos-x">-496</double>
+        <double id="pos-y">478</double>
+      </map>
+      <string id="name">Dilation</string>
+      <map id="inputs">
+        <binary id="0" type="pointer:CImage" label="Input image to dilation (allowed types: IMAGE_GREY_F, IMAGE_GREY_8, IMAGE_GREY_16, IMAGE_GREY_32, or IMAGE_GREY_D)." optional="false"/>
+      </map>
+      <map id="outputs">
+        <binary id="0" type="pointer:CImage" label="The dilated image of the same size and type as the input."/>
+      </map>
+      <string id="subType">Morphology</string>
+      <string id="PluginPath">%ITWMDIR%/bin/morphology::Dilation</string>
+      <map id="parameters">
+        <long id="half_windowsize_x">4</long>
+        <long id="half_windowsize_y">4</long>
+        <long id="half_windowsize_z">4</long>
+      </map>
+      <string id="pluginType">Image</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/morphology/PDilation/index.html</string>
+    </map>
+    <map>
+      <map id="ui">
+        <double id="pos-x">-334</double>
+        <double id="pos-y">475</double>
+      </map>
+      <string id="name">Erosion</string>
+      <map id="inputs">
+        <binary id="0" type="pointer:CImage" label="Input image to erosion (allowed types: IMAGE_GREY_F, IMAGE_GREY_8, IMAGE_GREY_16, IMAGE_GREY_32, or IMAGE_GREY_D)." optional="false"/>
+      </map>
+      <map id="outputs">
+        <binary id="0" type="pointer:CImage" label="The eroded image of the same size and type as the input."/>
+      </map>
+      <string id="subType">Morphology</string>
+      <string id="PluginPath">%ITWMDIR%/bin/morphology::Erosion</string>
+      <map id="parameters">
+        <long id="half_windowsize_x">2</long>
+        <long id="half_windowsize_y">2</long>
+        <long id="half_windowsize_z">2</long>
+      </map>
+      <string id="pluginType">Image</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/morphology/PErosion/index.html</string>
+    </map>
+    <map>
+      <map id="ui">
+        <string id="label">Dilatation+Erosion</string>
+        <double id="pos-x">-195</double>
+        <double id="pos-y">472</double>
+        <bool id="timing">false</bool>
+        <string id="FirstBgColor">#efe1c6</string>
+        <string id="SecondBgColor">#efe1c6</string>
+        <bool id="automaticLabel">false</bool>
+      </map>
+      <string id="name">Display</string>
+      <map id="inputs">
+        <binary id="0" type="pointer:CImage"/>
+      </map>
+      <bool id="widget">true</bool>
+      <map id="outputs">
+      </map>
+      <string id="subType">Image</string>
+      <string id="PluginPath">%ITWMDIR%/bin/display::Display</string>
+      <map id="parameters">
+        <map id="Image">
+          <string id="Zoom" desc="describes the zoom factor for the image display, e.g. 100%, see note for more information \n">100 %</string>
+          <long id="Plane" desc="... \n">0</long>
+          <bool id="Centered">false</bool>
+          <bool id="Normalize" desc="will normlize the image for the visualisation \n&#xa;">true</bool>
+          <bool id="ShowAsTable">false</bool>
+          <long id="TablePrecision">2</long>
+        </map>
+        <map id="state" ui:hidden="true">
+          <string id="hostname">DESKTOP-7LP1200</string>
+          <string id="windowState">AdnQywADAAAAAANwAAACDwAABo4AAANUAAADcAAAAg8AAAaOAAADVAAAAAAAAAAACgAAAANwAAACDwAABo4AAANU</string>
+          <string id="thumbnailState">AdnQywADAAAAAAAAAAAAAAAAAGMAAAAdAAAAAAAAAAAAAABjAAAAHQAAAAAAAAAACgAAAAAAAAAAAAAAAGMAAAAd</string>
+        </map>
+        <string id="StatusLine">(min=%imin max=%imax mean=%imean sd=%isigma) | %t | (%s)</string>
+        <map id="ZoomWidget">
+          <long id="Width" desc="for the loop function \n">100</long>
+          <long id="Height" desc="for the loop function \n">100</long>
+          <double id="ZoomFactor" desc="for the loop function&#xa;">2</double>
+        </map>
+        <map id="AlgorithmWidget">
+          <string id="Path" gui:openFile="true" desc="loads an .tlp- or .xml-graph \n">%ITWMDIR%/examples/graphs/Otsu.tlp</string>
+          <bool id="Zoom" desc="zooms the area on which you are clicking before applying the chosen algortihm \n">false</bool>
+          <long id="Width" desc="of the area on which the algorithm should be applied \n">100</long>
+          <long id="Height" desc="of the area on which the algorithm should be applied \n">100</long>
+          <bool id="Normalize" desc="\n&#xa;">false</bool>
+        </map>
+        <map id="ThumbnailWidget">
+          <bool id="Visible" desc="\n">false</bool>
+          <long id="MaxWidth" desc="\n">200</long>
+          <long id="MaxHeight" desc="\n&#xa;">200</long>
+        </map>
+      </map>
+      <string id="pluginType">Display</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/display/PDisplay/index.html</string>
+    </map>
+    <map>
+      <map id="ui">
+        <double id="pos-x">-498</double>
+        <double id="pos-y">356</double>
+      </map>
+      <string id="name">Closing</string>
+      <map id="inputs">
+        <binary id="0" type="pointer:CImage" label="Input image to the closure (allowed types: IMAGE_GREY_F, IMAGE_GREY_8, IMAGE_GREY_16, IMAGE_GREY_32, or IMAGE_GREY_D)." optional="false"/>
+      </map>
+      <map id="outputs">
+        <binary id="0" type="pointer:CImage" label="The morphologically closed image of the same size and type as the input."/>
+      </map>
+      <string id="subType">Morphology</string>
+      <string id="PluginPath">%ITWMDIR%/bin/morphology::Closing</string>
+      <map id="parameters">
+        <long id="half_windowsize_x">4</long>
+        <long id="half_windowsize_y">4</long>
+        <long id="half_windowsize_z">4</long>
+      </map>
+      <string id="pluginType">Image</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/morphology/PClosing/index.html</string>
+    </map>
+    <map>
+      <map id="ui">
+        <string id="label">Closing</string>
+        <double id="pos-x">-196</double>
+        <double id="pos-y">343</double>
+        <bool id="timing">false</bool>
+        <string id="FirstBgColor">#efe1c6</string>
+        <string id="SecondBgColor">#efe1c6</string>
+        <bool id="automaticLabel">false</bool>
+      </map>
+      <string id="name">Display</string>
+      <map id="inputs">
+        <binary id="0" type="pointer:CImage"/>
+      </map>
+      <bool id="widget">true</bool>
+      <map id="outputs">
+      </map>
+      <string id="subType">Image</string>
+      <string id="PluginPath">%ITWMDIR%/bin/display::Display</string>
+      <map id="parameters">
+        <map id="Image">
+          <string id="Zoom" desc="describes the zoom factor for the image display, e.g. 100%, see note for more information \n">100 %</string>
+          <long id="Plane" desc="... \n">0</long>
+          <bool id="Centered">false</bool>
+          <bool id="Normalize" desc="will normlize the image for the visualisation \n&#xa;">true</bool>
+          <bool id="ShowAsTable">false</bool>
+          <long id="TablePrecision">2</long>
+        </map>
+        <map id="state" ui:hidden="true">
+          <string id="hostname">DESKTOP-7LP1200</string>
+          <string id="windowState">AdnQywADAAAAAANvAAAB6QAABo8AAANVAAADcAAAAg8AAAaOAAADVAAAAAAAAAAACgAAAANwAAACDwAABo4AAANU</string>
+          <string id="thumbnailState">AdnQywADAAAAAAAAAAAAAAAAAGMAAAAdAAAAAAAAAAAAAABjAAAAHQAAAAAAAAAACgAAAAAAAAAAAAAAAGMAAAAd</string>
+        </map>
+        <string id="StatusLine">(min=%imin max=%imax mean=%imean sd=%isigma) | %t | (%s)</string>
+        <map id="ZoomWidget">
+          <long id="Width" desc="for the loop function \n">100</long>
+          <long id="Height" desc="for the loop function \n">100</long>
+          <double id="ZoomFactor" desc="for the loop function&#xa;">2</double>
+        </map>
+        <map id="AlgorithmWidget">
+          <string id="Path" gui:openFile="true" desc="loads an .tlp- or .xml-graph \n">%ITWMDIR%/examples/graphs/Otsu.tlp</string>
+          <bool id="Zoom" desc="zooms the area on which you are clicking before applying the chosen algortihm \n">false</bool>
+          <long id="Width" desc="of the area on which the algorithm should be applied \n">100</long>
+          <long id="Height" desc="of the area on which the algorithm should be applied \n">100</long>
+          <bool id="Normalize" desc="\n&#xa;">false</bool>
+        </map>
+        <map id="ThumbnailWidget">
+          <bool id="Visible" desc="\n">false</bool>
+          <long id="MaxWidth" desc="\n">200</long>
+          <long id="MaxHeight" desc="\n&#xa;">200</long>
+        </map>
+      </map>
+      <string id="pluginType">Display</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/display/PDisplay/index.html</string>
+    </map>
+    <map>
+      <map id="ui">
+        <string id="label">Opening_Originalbb.jpg</string>
+        <double id="pos-x">-649.5</double>
+        <double id="pos-y">79.5</double>
+        <bool id="timing">false</bool>
+        <string id="tooltip">D:/OneDrive/2.Semester/Viscom/Morphologie/Animationen und Erkl?rbilder/Beispielbilder_ToolIP/Opening_Originalbb.jpg</string>
+        <string id="FirstBgColor">#ffa500</string>
+        <string id="SecondBgColor">#ff4500</string>
+        <bool id="automaticLabel">true</bool>
+      </map>
+      <string id="name">Load</string>
+      <map id="inputs">
+      </map>
+      <bool id="widget">true</bool>
+      <map id="outputs">
+        <binary id="0" type="pointer:CImage"/>
+      </map>
+      <string id="subType">File</string>
+      <string id="PluginPath">%ITWMDIR%/bin/display::Load</string>
+      <map id="parameters">
+        <string id="path" gui:openFile="true" gui:filefilter="Image Files (*.ppm *.pgm *.pbm *.jpeg *.jpg *.bmp *.tiff *.tif *.png *.gif *.iass);;XML files (*.xml *.tlp);;All Files (*)">D:/OneDrive/2.Semester/Viscom/Morphologie/Animationen und Erklärbilder/Beispielbilder_ToolIP/Opening_Originalbb.jpg</string>
+      </map>
+      <string id="pluginType">In-/Output</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/display/PLoad/index.html</string>
+    </map>
+    <map>
+      <map id="ui">
+        <string id="label">Erosion+Dilatation</string>
+        <double id="pos-x">-180.5</double>
+        <double id="pos-y">153.5</double>
+        <bool id="timing">false</bool>
+        <string id="FirstBgColor">#efe1c6</string>
+        <string id="SecondBgColor">#efe1c6</string>
+        <bool id="automaticLabel">false</bool>
+      </map>
+      <string id="name">Display</string>
+      <map id="inputs">
+        <binary id="0" type="pointer:CImage"/>
+      </map>
+      <bool id="widget">true</bool>
+      <map id="outputs">
+      </map>
+      <string id="subType">Image</string>
+      <string id="PluginPath">%ITWMDIR%/bin/display::Display</string>
+      <map id="parameters">
+        <map id="Image">
+          <string id="Zoom" desc="describes the zoom factor for the image display, e.g. 100%, see note for more information \n">100 %</string>
+          <long id="Plane" desc="... \n">0</long>
+          <bool id="Centered">false</bool>
+          <bool id="Normalize" desc="will normlize the image for the visualisation \n&#xa;">true</bool>
+          <bool id="ShowAsTable">false</bool>
+          <long id="TablePrecision">2</long>
+        </map>
+        <map id="state" ui:hidden="true">
+          <string id="hostname">DESKTOP-7LP1200</string>
+          <string id="windowState">AdnQywADAAAAAANvAAAB6QAABo8AAANVAAADcAAAAg8AAAaOAAADVAAAAAAAAAAACgAAAANwAAACDwAABo4AAANU</string>
+          <string id="thumbnailState">AdnQywADAAAAAAAAAAAAAAAAAGMAAAAdAAAAAAAAAAAAAABjAAAAHQAAAAAAAAAACgAAAAAAAAAAAAAAAGMAAAAd</string>
+        </map>
+        <string id="StatusLine">(min=%imin max=%imax mean=%imean sd=%isigma) | %t | (%s)</string>
+        <map id="ZoomWidget">
+          <long id="Width" desc="for the loop function \n">100</long>
+          <long id="Height" desc="for the loop function \n">100</long>
+          <double id="ZoomFactor" desc="for the loop function&#xa;">2</double>
+        </map>
+        <map id="AlgorithmWidget">
+          <string id="Path" gui:openFile="true" desc="loads an .tlp- or .xml-graph \n">%ITWMDIR%/examples/graphs/Otsu.tlp</string>
+          <bool id="Zoom" desc="zooms the area on which you are clicking before applying the chosen algortihm \n">false</bool>
+          <long id="Width" desc="of the area on which the algorithm should be applied \n">100</long>
+          <long id="Height" desc="of the area on which the algorithm should be applied \n">100</long>
+          <bool id="Normalize" desc="\n&#xa;">false</bool>
+        </map>
+        <map id="ThumbnailWidget">
+          <bool id="Visible" desc="\n">false</bool>
+          <long id="MaxWidth" desc="\n">200</long>
+          <long id="MaxHeight" desc="\n&#xa;">200</long>
+        </map>
+      </map>
+      <string id="pluginType">Display</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/display/PDisplay/index.html</string>
+    </map>
+    <map>
+      <map id="ui">
+        <double id="pos-x">-321.5</double>
+        <double id="pos-y">159.5</double>
+      </map>
+      <string id="name">Dilation</string>
+      <map id="inputs">
+        <binary id="0" type="pointer:CImage" label="Input image to dilation (allowed types: IMAGE_GREY_F, IMAGE_GREY_8, IMAGE_GREY_16, IMAGE_GREY_32, or IMAGE_GREY_D)." optional="false"/>
+      </map>
+      <map id="outputs">
+        <binary id="0" type="pointer:CImage" label="The dilated image of the same size and type as the input."/>
+      </map>
+      <string id="subType">Morphology</string>
+      <string id="PluginPath">%ITWMDIR%/bin/morphology::Dilation</string>
+      <map id="parameters">
+        <long id="half_windowsize_x">2</long>
+        <long id="half_windowsize_y">2</long>
+        <long id="half_windowsize_z">2</long>
+      </map>
+      <string id="pluginType">Image</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/morphology/PDilation/index.html</string>
+    </map>
+    <map>
+      <map id="ui">
+        <string id="label">Opening</string>
+        <double id="pos-x">-181.5</double>
+        <double id="pos-y">24.5</double>
+        <bool id="timing">false</bool>
+        <string id="FirstBgColor">#efe1c6</string>
+        <string id="SecondBgColor">#efe1c6</string>
+        <bool id="automaticLabel">false</bool>
+      </map>
+      <string id="name">Display</string>
+      <map id="inputs">
+        <binary id="0" type="pointer:CImage"/>
+      </map>
+      <bool id="widget">true</bool>
+      <map id="outputs">
+      </map>
+      <string id="subType">Image</string>
+      <string id="PluginPath">%ITWMDIR%/bin/display::Display</string>
+      <map id="parameters">
+        <map id="Image">
+          <string id="Zoom" desc="describes the zoom factor for the image display, e.g. 100%, see note for more information \n">100 %</string>
+          <long id="Plane" desc="... \n">0</long>
+          <bool id="Centered">false</bool>
+          <bool id="Normalize" desc="will normlize the image for the visualisation \n&#xa;">true</bool>
+          <bool id="ShowAsTable">false</bool>
+          <long id="TablePrecision">2</long>
+        </map>
+        <map id="state" ui:hidden="true">
+          <string id="hostname">DESKTOP-7LP1200</string>
+          <string id="windowState">AdnQywADAAAAAANvAAAB6QAABo8AAANVAAADcAAAAg8AAAaOAAADVAAAAAAAAAAACgAAAANwAAACDwAABo4AAANU</string>
+          <string id="thumbnailState">AdnQywADAAAAAAAAAAAAAAAAAGMAAAAdAAAAAAAAAAAAAABjAAAAHQAAAAAAAAAACgAAAAAAAAAAAAAAAGMAAAAd</string>
+        </map>
+        <string id="StatusLine">(min=%imin max=%imax mean=%imean sd=%isigma) | %t | (%s)</string>
+        <map id="ZoomWidget">
+          <long id="Width" desc="for the loop function \n">100</long>
+          <long id="Height" desc="for the loop function \n">100</long>
+          <double id="ZoomFactor" desc="for the loop function&#xa;">2</double>
+        </map>
+        <map id="AlgorithmWidget">
+          <string id="Path" gui:openFile="true" desc="loads an .tlp- or .xml-graph \n">%ITWMDIR%/examples/graphs/Otsu.tlp</string>
+          <bool id="Zoom" desc="zooms the area on which you are clicking before applying the chosen algortihm \n">false</bool>
+          <long id="Width" desc="of the area on which the algorithm should be applied \n">100</long>
+          <long id="Height" desc="of the area on which the algorithm should be applied \n">100</long>
+          <bool id="Normalize" desc="\n&#xa;">false</bool>
+        </map>
+        <map id="ThumbnailWidget">
+          <bool id="Visible" desc="\n">false</bool>
+          <long id="MaxWidth" desc="\n">200</long>
+          <long id="MaxHeight" desc="\n&#xa;">200</long>
+        </map>
+      </map>
+      <string id="pluginType">Display</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/display/PDisplay/index.html</string>
+    </map>
+    <map>
+      <map id="ui">
+        <double id="pos-x">-468.5</double>
+        <double id="pos-y">163.5</double>
+      </map>
+      <string id="name">Erosion</string>
+      <map id="inputs">
+        <binary id="0" type="pointer:CImage" label="Input image to erosion (allowed types: IMAGE_GREY_F, IMAGE_GREY_8, IMAGE_GREY_16, IMAGE_GREY_32, or IMAGE_GREY_D)." optional="false"/>
+      </map>
+      <map id="outputs">
+        <binary id="0" type="pointer:CImage" label="The eroded image of the same size and type as the input."/>
+      </map>
+      <string id="subType">Morphology</string>
+      <string id="PluginPath">%ITWMDIR%/bin/morphology::Erosion</string>
+      <map id="parameters">
+        <long id="half_windowsize_x">4</long>
+        <long id="half_windowsize_y">4</long>
+        <long id="half_windowsize_z">4</long>
+      </map>
+      <string id="pluginType">Image</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/morphology/PErosion/index.html</string>
+    </map>
+    <map>
+      <map id="ui">
+        <double id="pos-x">-471</double>
+        <double id="pos-y">3</double>
+      </map>
+      <string id="name">Opening</string>
+      <map id="inputs">
+        <binary id="0" type="pointer:CImage" label="Image to which the opening should be applied, must be of&#xa;type IMAGE_GREY_8, IMAGE_GREY_16, IMAGE_GREY_32,&#xa;IMAGE_GREY_F, or IMAGE_GREY_D" optional="false"/>
+      </map>
+      <map id="outputs">
+        <binary id="0" type="pointer:CImage" label="Morphologically opened image."/>
+      </map>
+      <string id="subType">Morphology</string>
+      <string id="PluginPath">%ITWMDIR%/bin/morphology::Opening</string>
+      <map id="parameters">
+        <long id="half_windowsize_x">4</long>
+        <long id="half_windowsize_y">4</long>
+        <long id="half_windowsize_z">4</long>
+      </map>
+      <string id="pluginType">Image</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/morphology/POpening/index.html</string>
+    </map>
+  </vector>
+  <string id="version">3.0</string>
+  <string id="timestamp">2022-07-24T13-31-23-01:00</string>
+  <map id="parameters">
+  </map>
+  <map id="systeminfo">
+    <map id="Os">
+      <string id="OsName">Windows</string>
+      <string id="OsVersion"></string>
+    </map>
+    <map id="Cpu">
+      <string id="VendorId"></string>
+      <long id="ClocksPerSecHi">0</long>
+      <long id="ClocksPerSecLo">10000000</long>
+    </map>
+    <map id="Net">
+      <long id="Ip">67152064</long>
+      <string id="Host">DESKTOP-7LP1200</string>
+      <long id="Adapters">4</long>
+      <vector id="IpStrings" size="4">
+        <string>192.168.0.4</string>
+        <string>0.0.0.0</string>
+        <string>0.0.0.0</string>
+        <string>0.0.0.0</string>
+      </vector>
+      <vector id="MacStrings" size="4">
+        <string>9828a633d9d5</string>
+        <string>207918148c22</string>
+        <string>00ff1c12fd7c</string>
+        <string>00ffa9fac932</string>
+      </vector>
+    </map>
+    <map id="Proc">
+      <long id="Id">3996</long>
+      <string id="Name">ToolIP.exe</string>
+      <string id="DirPath">D:\ToolIP\bin</string>
+      <map id="Threads">
+      </map>
+      <string id="FilePath">D:\ToolIP\bin\ToolIP.exe</string>
+    </map>
+    <map id="User">
+      <string id="Name">Vanes</string>
+      <string id="AppData">C:\Users\Vanes\AppData\Roaming\ITWM</string>
+      <string id="Homedir">C:\Users\Vanes</string>
+    </map>
+  </map>
+  <vector id="Connections" size="10">
+    <map>
+      <long id="EndNode">1</long>
+      <long id="StartNode">0</long>
+      <long id="EndNodePin">0</long>
+      <long id="StartNodePin">0</long>
+    </map>
+    <map>
+      <long id="EndNode">2</long>
+      <long id="StartNode">1</long>
+      <long id="EndNodePin">0</long>
+      <long id="StartNodePin">0</long>
+    </map>
+    <map>
+      <long id="EndNode">3</long>
+      <long id="StartNode">2</long>
+      <long id="EndNodePin">0</long>
+      <long id="StartNodePin">0</long>
+    </map>
+    <map>
+      <long id="EndNode">4</long>
+      <long id="StartNode">0</long>
+      <long id="EndNodePin">0</long>
+      <long id="StartNodePin">0</long>
+    </map>
+    <map>
+      <long id="EndNode">5</long>
+      <long id="StartNode">4</long>
+      <long id="EndNodePin">0</long>
+      <long id="StartNodePin">0</long>
+    </map>
+    <map>
+      <long id="EndNode">7</long>
+      <long id="StartNode">8</long>
+      <long id="EndNodePin">0</long>
+      <long id="StartNodePin">0</long>
+    </map>
+    <map>
+      <long id="EndNode">8</long>
+      <long id="StartNode">10</long>
+      <long id="EndNodePin">0</long>
+      <long id="StartNodePin">0</long>
+    </map>
+    <map>
+      <long id="EndNode">9</long>
+      <long id="StartNode">11</long>
+      <long id="EndNodePin">0</long>
+      <long id="StartNodePin">0</long>
+    </map>
+    <map>
+      <long id="EndNode">10</long>
+      <long id="StartNode">6</long>
+      <long id="EndNodePin">0</long>
+      <long id="StartNodePin">0</long>
+    </map>
+    <map>
+      <long id="EndNode">11</long>
+      <long id="StartNode">6</long>
+      <long id="EndNodePin">0</long>
+      <long id="StartNodePin">0</long>
+    </map>
+  </vector>
+</config>
