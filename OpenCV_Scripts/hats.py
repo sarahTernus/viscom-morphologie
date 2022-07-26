@@ -5,9 +5,9 @@ import cv2 as cv
 def hats():
 
     # Reading the input image
-    img_top = cv.imread('images/top-hat.png', 0)
-    img_black = cv.imread('images/black-hat.png', 0)
-    img_selfdual = cv.imread('images/self-dual.png', 0)
+    img_top = cv.imread('../images/Hats/top-hat.png', 0)
+    img_black = cv.imread('../images/Hats/black-hat.png', 0)
+    img_selfdual = cv.imread('../images/Hats/self-dual.png', 0)
 
     # Taking a matrix of size 5 as the kernel
     kernel = np.ones((5, 5), np.uint8)
@@ -19,9 +19,9 @@ def hats():
     selfdual_hat = cv.morphologyEx(img_selfdual, cv.MORPH_BLACKHAT, kernel) + cv.morphologyEx(img_selfdual, cv.MORPH_TOPHAT, kernel)
     # selfdual_hat2 = (cv.morphologyEx(img_selfdual, cv.MORPH_CLOSE, kernel) - cv.morphologyEx(img_selfdual, cv.MORPH_OPEN, kernel))
 
-    cv.imwrite('images/top-hat-result.png', top_hat)
-    cv.imwrite('images/black-hat-result.png', black_hat)
-    cv.imwrite('images/selfdual-hat-result.png', selfdual_hat)
+    cv.imwrite('../images/results/top-hat-result.png', top_hat)
+    cv.imwrite('../images/results/black-hat-result.png', black_hat)
+    cv.imwrite('../images/results/selfdual-hat-result.png', selfdual_hat)
 
     cv.waitKey(0)
 

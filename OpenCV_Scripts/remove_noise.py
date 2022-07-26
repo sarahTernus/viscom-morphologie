@@ -38,8 +38,8 @@ def salt_pepper_noise_removal(image):
 
 
 if __name__ == '__main__':
-    img = cv.imread('images/erau.jpeg', cv.IMREAD_GRAYSCALE)
+    img = cv.imread('../images/erau.jpeg', cv.IMREAD_GRAYSCALE)
     salt_and_pepper_erau = add_noise(img)
-    cv.imwrite('images/salt-pepper-erau.jpg', salt_and_pepper_erau)
+    cv.imwrite('../images/results/salt-pepper-erau.jpg', salt_and_pepper_erau)
 
-    cv.imwrite('images/removed-noise-erau.jpg', salt_pepper_noise_removal(salt_and_pepper_erau))
+    cv.imwrite('../images/results/removed-noise-erau.jpg', salt_pepper_noise_removal(salt_and_pepper_erau))
