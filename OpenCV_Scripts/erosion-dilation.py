@@ -5,8 +5,9 @@ import cv2 as cv
 def erosion_dilation():
 
     # Reading the input image
-    img_erosion = cv.imread('images/erosion-example.png', 0)
-    img_dilation = cv.imread('images/dilation-example.png', 0)
+    img_erosion = cv.imread('../images/Erosion_Dilation/erosion-example.png', 0)
+    img_dilation = cv.imread('../images/Erosion_Dilation/dilation-example.png', 0)
+
     if img_erosion is None:
         print('Could not open or find the erosion image: ')
         exit(0)
@@ -23,8 +24,8 @@ def erosion_dilation():
     img_dilation_result = cv.dilate(img_dilation, kernel, iterations=1)
 
     # Save result images
-    cv.imwrite('images/erosion-result.png', img_erosion_result)
-    cv.imwrite('images/dilation-result.png', img_dilation_result)
+    cv.imwrite('../images/results/erosion-result.png', img_erosion_result)
+    cv.imwrite('../images/results/dilation-result.png', img_dilation_result)
 
     cv.waitKey(0)
 
