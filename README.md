@@ -4,11 +4,11 @@ Dieses Projekt enthält Implementierungs-Beispiele für morphologische Operation
 Die Code-Beispiele stellen eine Ergänzung zu dem OLAT Morphologie Kursbaustein dar, welcher im Rahmen der Master-Veranstaltung "Visual Computing" entstanden ist. 
 
 Informationsgrafiken und Beispielbilder können unter folgendem Link von Seafile heruntergeladen werden: https://seafile.rlp.net/d/235fed4ac7c64ef08937/ 
+<br><br>
 
 
-
-Verwendete Software:
-Bradski, G. (2000). The OpenCV Library. Dr. Dobb's Journal of Software Tools.
-Frauenhofer ITWM. ToolIP - Tool for Image Processing.
+Verwendete Software:<br>
+Bradski, G. (2000). The OpenCV Library. Dr. Dobb's Journal of Software Tools.<br>
+Frauenhofer ITWM. ToolIP - Tool for Image Processing.<br>
 
 Zum Erstellen der Informationsgrafiken wurden Affinity Publisher und Adobe Photoshop genutzt. 
