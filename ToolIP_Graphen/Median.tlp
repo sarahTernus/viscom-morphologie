@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<config
+  xmlns:schema="http://www.itwm.fhg.de/mab/Mablib2Core/XML2Schema"
+  xmlns:val="http://www.itwm.fhg.de/mab/Mablib2Core/XML2Validator"
+  xmlns:ser="http://www.itwm.fhg.de/mab/Mablib2Core/XML2Serializer"
+  xmlns:gui="http://www.itwm.fhg.de/mab/Mablib2Core/XML2Gui"
+  xmlns:range="http://www.itwm.fhg.de/mab/Mablib2Core/XML2Range"
+>
+
+  <string id="id">ToolIP:graph</string>
+  <map id="app">
+    <string id="mode">internal</string>
+    <string id="application">ToolIP</string>
+  </map>
+  <map id="env">
+    <string id="QTDIR"></string>
+    <string id="ITWMDIR">D:\ToolIP</string>
+  </map>
+  <vector id="Nodes" size="3">
+    <map>
+      <map id="ui">
+        <string id="label">Ergebnis</string>
+        <double id="pos-x">163</double>
+        <double id="pos-y">423</double>
+        <bool id="timing">false</bool>
+        <string id="FirstBgColor">#efe1c6</string>
+        <string id="SecondBgColor">#efe1c6</string>
+        <bool id="automaticLabel">false</bool>
+      </map>
+      <string id="name">Display</string>
+      <map id="inputs">
+        <binary id="0" type="pointer:CImage"/>
+      </map>
+      <bool id="widget">true</bool>
+      <map id="outputs">
+      </map>
+      <string id="subType">Image</string>
+      <string id="PluginPath">%ITWMDIR%/bin/display::Display</string>
+      <map id="parameters">
+        <map id="Image">
+          <string id="Zoom">200 %</string>
+          <long id="Plane">0</long>
+          <bool id="Centered">false</bool>
+          <bool id="Normalize">true</bool>
+          <bool id="ShowAsTable">false</bool>
+          <long id="TablePrecision">2</long>
+        </map>
+        <map id="state" ui:hidden="true">
+          <string id="hostname">DESKTOP-7LP1200</string>
+          <string id="windowState">AdnQywADAAAAAAO2AAAC0QAABtYAAARxAAADtwAAAvcAAAbVAAAEcAAAAAAAAAAACgAAAAO3AAAC9wAABtUAAARw</string>
+          <string id="thumbnailState">AdnQywADAAAAAAAAAAAAAAAAAGMAAAAdAAAAAAAAAAAAAABjAAAAHQAAAAAAAAAACgAAAAAAAAAAAAAAAGMAAAAd</string>
+        </map>
+        <string id="StatusLine">(min=%imin max=%imax mean=%imean sd=%isigma) | %t | (%s)</string>
+        <map id="ZoomWidget">
+          <long id="Width">100</long>
+          <long id="Height">100</long>
+          <double id="ZoomFactor">2</double>
+        </map>
+        <map id="AlgorithmWidget">
+          <string id="Path" gui:openFile="true">%ITWMDIR%/examples/graphs/Otsu.tlp</string>
+          <bool id="Zoom">false</bool>
+          <long id="Width">100</long>
+          <long id="Height">100</long>
+          <bool id="Normalize">false</bool>
+        </map>
+        <map id="ThumbnailWidget">
+          <bool id="Visible">false</bool>
+          <long id="MaxWidth">200</long>
+          <long id="MaxHeight">200</long>
+        </map>
+      </map>
+      <string id="pluginType">Display</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/display/PDisplay/index.html</string>
+    </map>
+    <map>
+      <map id="ui">
+        <string id="label">IMG_1006.jpg</string>
+        <double id="pos-x">-378</double>
+        <double id="pos-y">384</double>
+        <bool id="timing">false</bool>
+        <string id="tooltip">D:/OneDrive/2.Semester/Viscom/Morphologie/Praxisbeispiele/IMG_1006.jpg</string>
+        <string id="FirstBgColor">#ffa500</string>
+        <string id="SecondBgColor">#ff4500</string>
+        <bool id="automaticLabel">true</bool>
+      </map>
+      <string id="name">Load</string>
+      <map id="inputs">
+      </map>
+      <bool id="widget">true</bool>
+      <map id="outputs">
+        <binary id="0" type="pointer:CImage"/>
+      </map>
+      <string id="subType">File</string>
+      <string id="PluginPath">%ITWMDIR%/bin/display::Load</string>
+      <map id="parameters">
+        <string id="path" gui:openFile="true" gui:filefilter="Image Files (*.ppm *.pgm *.pbm *.jpeg *.jpg *.bmp *.tiff *.tif *.png *.gif *.iass);;XML files (*.xml *.tlp);;All Files (*)">D:/OneDrive/2.Semester/Viscom/Morphologie/Praxisbeispiele/IMG_1006.jpg</string>
+      </map>
+      <string id="pluginType">In-/Output</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/display/PLoad/index.html</string>
+    </map>
+    <map>
+      <map id="ui">
+        <string id="label">Median</string>
+        <double id="pos-x">-126</double>
+        <double id="pos-y">408</double>
+        <bool id="automaticLabel">false</bool>
+      </map>
+      <string id="name">Median</string>
+      <map id="inputs">
+        <binary id="0" type="pointer:CImage" label="Input image of type IMAGE_GREY_F or IMAGE_GREY_8." optional="false"/>
+      </map>
+      <map id="outputs">
+        <binary id="0" type="pointer:CImage" label="Output image of the same type as the input image."/>
+      </map>
+      <string id="subType">Filter</string>
+      <string id="PluginPath">%ITWMDIR%/bin/filter::Median</string>
+      <map id="parameters">
+        <string id="method" val:enValues="NAIVE,SORTING_NETWORKS,HUANG,PERREAULT">NAIVE</string>
+        <long id="step_x">1</long>
+        <long id="step_y">1</long>
+      </map>
+      <string id="pluginType">Image</string>
+      <map id="parameter_pins">
+      </map>
+      <string id="__toolipDocumentation">%ITWMDIR%/doc/toolip/html/filter/PMedian/index.html</string>
+    </map>
+  </vector>
+  <string id="version">3.0</string>
+  <string id="timestamp">2022-07-26T14-28-58-01:00</string>
+  <map id="parameters">
+  </map>
+  <map id="systeminfo">
+    <map id="Os">
+      <string id="OsName">Windows</string>
+      <string id="OsVersion"></string>
+    </map>
+    <map id="Cpu">
+      <string id="VendorId"></string>
+      <long id="ClocksPerSecHi">0</long>
+      <long id="ClocksPerSecLo">10000000</long>
+    </map>
+    <map id="Net">
+      <long id="Ip">67152064</long>
+      <string id="Host">DESKTOP-7LP1200</string>
+      <long id="Adapters">4</long>
+      <vector id="IpStrings" size="4">
+        <string>192.168.0.4</string>
+        <string>0.0.0.0</string>
+        <string>0.0.0.0</string>
+        <string>0.0.0.0</string>
+      </vector>
+      <vector id="MacStrings" size="4">
+        <string>9828a633d9d5</string>
+        <string>207918148c22</string>
+        <string>00ff1c12fd7c</string>
+        <string>00ffa9fac932</string>
+      </vector>
+    </map>
+    <map id="Proc">
+      <long id="Id">24300</long>
+      <string id="Name">ToolIP.exe</string>
+      <string id="DirPath">D:\ToolIP\bin</string>
+      <map id="Threads">
+      </map>
+      <string id="FilePath">D:\ToolIP\bin\ToolIP.exe</string>
+    </map>
+    <map id="User">
+      <string id="Name">Vanes</string>
+      <string id="AppData">C:\Users\Vanes\AppData\Roaming\ITWM</string>
+      <string id="Homedir">C:\Users\Vanes</string>
+    </map>
+  </map>
+  <vector id="Connections" size="2">
+    <map>
+      <long id="EndNode">0</long>
+      <long id="StartNode">2</long>
+      <long id="EndNodePin">0</long>
+      <long id="StartNodePin">0</long>
+    </map>
+    <map>
+      <long id="EndNode">2</long>
+      <long id="StartNode">1</long>
+      <long id="EndNodePin">0</long>
+      <long id="StartNodePin">0</long>
+    </map>
+  </vector>
+</config>
