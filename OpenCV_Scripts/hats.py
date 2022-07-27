@@ -17,13 +17,14 @@ def hats():
     top_hat = cv.morphologyEx(img_top, cv.MORPH_TOPHAT, kernel)
     black_hat = cv.morphologyEx(img_black, cv.MORPH_BLACKHAT, kernel)
     selfdual_hat = cv.morphologyEx(img_selfdual, cv.MORPH_BLACKHAT, kernel) + cv.morphologyEx(img_selfdual, cv.MORPH_TOPHAT, kernel)
-    # selfdual_hat2 = (cv.morphologyEx(img_selfdual, cv.MORPH_CLOSE, kernel) - cv.morphologyEx(img_selfdual, cv.MORPH_OPEN, kernel))
+
+    # other version
+    # selfdual_hat2 = (cv.morphologyEx(img_selfdual, cv.MORPH_CLOSE, kernel) -
+    #                  cv.morphologyEx(img_selfdual, cv.MORPH_OPEN, kernel))
 
     cv.imwrite('../images/results/top-hat-result.png', top_hat)
     cv.imwrite('../images/results/black-hat-result.png', black_hat)
     cv.imwrite('../images/results/selfdual-hat-result.png', selfdual_hat)
-
-    cv.waitKey(0)
 
 
 if __name__ == '__main__':

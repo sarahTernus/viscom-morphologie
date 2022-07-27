@@ -17,17 +17,20 @@ def erosion_dilation():
         exit(0)
 
     # Structural element
-    kernel = np.ones((6, 6), np.uint8)
+    kernel = np.ones((3, 3), np.uint8)
 
     # Erosion and Dilation functions
     img_erosion_result = cv.erode(img_erosion, kernel, iterations=1)
     img_dilation_result = cv.dilate(img_dilation, kernel, iterations=1)
 
-    # Save result images
+    # Show result images
+    cv.imshow("img_erosion_result", img_erosion_result)
+    cv.imshow("img_dilation_result", img_dilation_result)
+    cv.waitKey(0)
+
+    # Store result images
     cv.imwrite('../images/results/erosion-result.png', img_erosion_result)
     cv.imwrite('../images/results/dilation-result.png', img_dilation_result)
-
-    cv.waitKey(0)
 
 
 if __name__ == '__main__':
