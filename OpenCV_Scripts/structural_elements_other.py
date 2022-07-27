@@ -15,7 +15,7 @@ def structuring_elements():
     print(cross_kernel)
 
     # Reading the input image
-    img = cv.imread('../images/beispielbild3.png', 0)
+    img = cv.imread('../images/Beispielbild3_210x210.jpg', 0)
     if img is None:
         print('Could not open or find the erosion image: ')
         exit(0)
@@ -30,14 +30,14 @@ def structuring_elements():
     img_dilation_cross = cv.dilate(img, cross_kernel, iterations=1)
 
     # Save result images
-    cv.imwrite('../images/SEresults/img_erosion_rectangle.png', img_erosion_rect)
-    cv.imwrite('../images/SEresults/img_erosion_ellipsis.png', img_erosion_ellipsis)
-    cv.imwrite('../images/SEresults/img_erosion_cross.png', img_erosion_cross)
+    cv.imshow('rectangle erosion', img_erosion_rect)
+    cv.imshow('ellipse erosion', img_erosion_ellipsis)
+    cv.imshow('cross erosion', img_erosion_cross)
+    cv.waitKey(0)
 
-    cv.imwrite('../images/SEresults/img_dilation_rectangle.png', img_dilation_rect)
-    cv.imwrite('../images/SEresults/img_dilation_ellipse.png', img_dilation_ellipse)
-    cv.imwrite('../images/SEresults/img_dilation_cross.png', img_dilation_cross)
-
+    cv.imshow('rectangle dilation', img_dilation_rect)
+    cv.imshow('ellipse dilation', img_dilation_ellipse)
+    cv.imshow('cross dilation', img_dilation_cross)
     cv.waitKey(0)
 
 

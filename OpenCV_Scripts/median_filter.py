@@ -1,19 +1,38 @@
-import numpy as np
+
 import cv2 as cv
+import random
 
 
-def median():
+def add_noise(image):
+    row, col = image.shape
 
-    # Reading the input image
-    img = cv.imread('../images/salt-pepper-erau.jpg', 0)
+    number_of_pixels = random.randint(300, 10000)
+    for i in range(number_of_pixels):
+        y_coord = random.randint(0, row - 1)
+        x_coord = random.randint(0, col - 1)
+        image[y_coord][x_coord] = 255
 
+    number_of_pixels = random.randint(300, 10000)
+    for i in range(number_of_pixels):
+        y_coord = random.randint(0, row - 1)
+        x_coord = random.randint(0, col - 1)
+        image[y_coord][x_coord] = 0
+
+    return image
+
+
+def median(image):
     # Median Filter Function
     median_filter = cv.medianBlur(img, 3)
 
     # Save result image
     cv.imwrite('../images/results/median-erau.jpg', median_filter)
-    cv.waitKey(0)
 
 
 if __name__ == '__main__':
-    median()
+    # reading input image and creating noise on image
+    img = cv.imread('../images/erau.jpeg', cv.IMREAD_GRAYSCALE)
+    salt_and_pepper_erau = add_noise(img)
+
+    # call median function
+    median(salt_and_pepper_erau)

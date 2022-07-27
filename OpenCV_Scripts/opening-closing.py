@@ -21,8 +21,6 @@ def opening_closing():
     cv.imwrite('../images/results/oeffnung-result.png', opening)
     cv.imwrite('../images/results/schliessung-result.png', closing)
 
-    cv.waitKey(0)
-
 
 if __name__ == '__main__':
     opening_closing()

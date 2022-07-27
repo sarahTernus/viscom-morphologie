@@ -19,8 +19,6 @@ def erosion_dilation():
     # Save result images
     cv.imwrite('../images/results/dilation_viscom.png', img_dilation)
 
-    cv.waitKey(0)
-
 
 if __name__ == '__main__':
     erosion_dilation()
